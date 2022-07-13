@@ -1079,7 +1079,7 @@ class NewVersionWarning(models.Model):
     @classmethod
     def send_mails(cls):
         """
-            For each new django-cas-server version, if the current instance is not up to date
+            For each new django-4-cas-server version, if the current instance is not up to date
             send one mail to ``settings.ADMINS``.
         """
         if settings.CAS_NEW_VERSION_EMAIL_WARNING and settings.ADMINS:
@@ -1093,19 +1093,19 @@ class NewVersionWarning(models.Model):
                     try:
                         send_mail(
                             (
-                                '%sA new version of django-cas-server is available'
+                                '%sA new version of django-4-cas-server is available'
                             ) % settings.EMAIL_SUBJECT_PREFIX,
                             u'''
-A new version of the django-cas-server is available.
+A new version of the django-4-cas-server is available.
 
 Your version: %s
 New version: %s
 
 Upgrade using:
-    * pip install -U django-cas-server
+    * pip install -U django-4-cas-server
     * fetching the last release on
-      https://github.com/nitmir/django-cas-server/ or on
-      https://pypi.org/project/django-cas-server/
+      https://github.com/KenWhitesell/django-4-cas-server/ or on
+      https://pypi.org/project/django-4-cas-server/
 
 After upgrade, do not forget to run:
     * ./manage.py migrate
@@ -1113,7 +1113,7 @@ After upgrade, do not forget to run:
 and to reload your wsgi server (apache2, uwsgi, gunicord, etc…)
 
 --\u0020
-django-cas-server
+django-4-cas-server
 '''.strip() % (VERSION, LAST_VERSION),
                             settings.SERVER_EMAIL,
                             ["%s <%s>" % admin for admin in settings.ADMINS],

@@ -91,9 +91,9 @@ qthelp:
 	@echo
 	@echo "Build finished; now you can run "qcollectiongenerator" with the" \
 	      ".qhcp project file in $(BUILDDIR)/qthelp, like this:"
-	@echo "# qcollectiongenerator $(BUILDDIR)/qthelp/django-cas-server.qhcp"
+	@echo "# qcollectiongenerator $(BUILDDIR)/qthelp/django-4-cas-server.qhcp"
 	@echo "To view the help file:"
-	@echo "# assistant -collectionFile $(BUILDDIR)/qthelp/django-cas-server.qhc"
+	@echo "# assistant -collectionFile $(BUILDDIR)/qthelp/django-4-cas-server.qhc"
 
 .PHONY: applehelp
 applehelp:
@@ -110,8 +110,8 @@ devhelp:
 	@echo
 	@echo "Build finished."
 	@echo "To view the help file:"
-	@echo "# mkdir -p $$HOME/.local/share/devhelp/django-cas-server"
-	@echo "# ln -s $(BUILDDIR)/devhelp $$HOME/.local/share/devhelp/django-cas-server"
+	@echo "# mkdir -p $$HOME/.local/share/devhelp/django-4-cas-server"
+	@echo "# ln -s $(BUILDDIR)/devhelp $$HOME/.local/share/devhelp/django-4-cas-server"
 	@echo "# devhelp"
 
 .PHONY: epub

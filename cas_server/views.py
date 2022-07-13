@@ -960,7 +960,7 @@ class Auth(CsrfExemptView):
         A simple view to validate username/password/service tuple
 
         csrf is disable as it is intended to be used by programs. Security is assured by a shared
-        secret between the programs dans django-cas-server.
+        secret between the programs dans django-4-cas-server.
     """
 
     @staticmethod

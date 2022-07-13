@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# django-cas-server documentation build configuration file, created by
+# django-4-cas-server documentation build configuration file, created by
 # sphinx-quickstart on Tue Jul  5 12:11:50 2016.
 #
 # This file is execfile()d with the current directory set to its
@@ -63,7 +63,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'django-cas-server'
+project = u'django-4-cas-server'
 copyright = u'2016, Valentin Samir'
 author = u'Valentin Samir'
 
@@ -149,7 +149,7 @@ html_theme = 'sphinx_rtd_theme'
 # The name for this set of Sphinx documents.
 # "<project> v<release> documentation" by default.
 #
-# html_title = u'django-cas-server v5.0'
+# html_title = u'django-4-cas-server v5.0'
 
 # A shorter title for the navigation bar.  Default is the same as html_title.
 #
@@ -249,7 +249,7 @@ html_static_path = ['_static']
 # html_search_scorer = 'scorer.js'
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'django-cas-serverdoc'
+htmlhelp_basename = 'django-4-cas-serverdoc'
 
 # -- Options for LaTeX output ---------------------------------------------
 
@@ -275,7 +275,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'django-cas-server.tex', u'django-cas-server Documentation',
+    (master_doc, 'django-4-cas-server.tex', u'django-4-cas-server Documentation',
      u'Valentin Samir', 'manual'),
 ]
 
@@ -311,7 +311,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'django-cas-server', u'django-cas-server Documentation',
+    (master_doc, 'django-4-cas-server', u'django-4-cas-server Documentation',
      [author], 1)
 ]
 
@@ -326,8 +326,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'django-cas-server', u'django-cas-server Documentation',
-     author, 'django-cas-server', 'One line description of project.',
+    (master_doc, 'django-4-cas-server', u'django-4-cas-server Documentation',
+     author, 'django-4-cas-server', 'One line description of project.',
      'Miscellaneous'),
 ]
 

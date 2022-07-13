@@ -344,7 +344,7 @@ class NewVersionWarningTestCase(TestCase):
         self.assertEqual(len(mail.outbox), 1)
         self.assertEqual(
             mail.outbox[0].subject,
-            '%sA new version of django-cas-server is available' % settings.EMAIL_SUBJECT_PREFIX
+            '%sA new version of django-4-cas-server is available' % settings.EMAIL_SUBJECT_PREFIX
         )
 
         models.NewVersionWarning.send_mails()

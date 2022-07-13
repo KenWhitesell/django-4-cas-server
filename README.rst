@@ -21,21 +21,21 @@ Features
 * Possibility to rename/rewrite attributes per service
 * Possibility to require some attribute values per service
 * Federated mode between multiple CAS
-* Supports Django 1.11, 2.2, 3.1 and 3.2
-* Supports Python 3.5+
+* Supports Django 4
+* Supports Python 3.8+
 
 Dependencies
 ============
 
-``django-cas-server`` depends on the following python packages:
+``django-4-cas-server`` depends on the following python packages:
 
-* Django >= 1.11 < 3.3
+* Django >= 4
 * requests >= 2.4
 * requests_futures >= 0.9.5
 * lxml >= 3.4
 * six >= 1.8
 
-Minimal version of package dependencies are just indicative and means that ``django-cas-server`` has
+Minimal version of package dependencies are just indicative and means that ``django-4-cas-server`` has
 been tested with it. Previous versions of dependencies may or may not work.
 
 Additionally, depending on the `Authentication backend`_ you plan to use, you may need the following
@@ -106,14 +106,14 @@ The recommended installation mode is to use a virtualenv with ``--system-site-pa
    $ django-admin startproject cas_project
    $ cd cas_project
 
-6. Install `django-cas-server`. To use the last published release, run::
+6. Install `django-4-cas-server`. To use the last published release, run::
 
-    $ pip install django-cas-server
+    $ pip install django-4-cas-server
 
    Alternatively if you want to use the version of the git repository, you can clone it::
 
-    $ git clone https://github.com/nitmir/django-cas-server
-    $ cd django-cas-server
+    $ git clone https://github.com/nitmir/django-4-cas-server
+    $ cd django-4-cas-server
     $ pip install -r requirements.txt
 
    Then, either run ``make install`` to create a python package using the sources of the repository
@@ -189,7 +189,7 @@ Quick start
 Settings
 ========
 
-All settings are optional. Add them to ``settings.py`` to customize ``django-cas-server``:
+All settings are optional. Add them to ``settings.py`` to customize ``django-4-cas-server``:
 
 
 Template settings
@@ -262,7 +262,7 @@ Authentication settings
 
 * ``CAS_AUTH_CLASS``: A dotted path to a class or a class implementing
   ``cas_server.auth.AuthUser``. The default is ``"cas_server.auth.DjangoAuthUser"``
-  Available classes bundled with ``django-cas-server`` are listed below in the
+  Available classes bundled with ``django-4-cas-server`` are listed below in the
   `Authentication backend`_ section.
 
 * ``SESSION_COOKIE_AGE``: This is a django setting. Here, it controls the delay in seconds after
@@ -323,7 +323,7 @@ Tickets miscellaneous settings
 * ``CAS_TICKET_LEN``: Default ticket length. All CAS implementations MUST support ST and PT
   up to 32 chars, PGT and PGTIOU up to 64 chars and it is RECOMMENDED that all tickets up
   to 256 chars are supported. Here the default is ``64``.
-* ``CAS_LT_LEN``: Length of the login tickets. Login tickets are only processed by ``django-cas-server``
+* ``CAS_LT_LEN``: Length of the login tickets. Login tickets are only processed by ``django-4-cas-server``
   thus there are no length restrictions on it. The default is ``CAS_TICKET_LEN``.
 * ``CAS_ST_LEN``: Length of the service tickets. The default is ``CAS_TICKET_LEN``.
   You may need to lower it to ``32`` if you use some old clients.
@@ -453,7 +453,7 @@ Only useful if you are using the test authentication backend:
 Authentication backend
 ======================
 
-``django-cas-server`` comes with some authentication backends:
+``django-4-cas-server`` comes with some authentication backends:
 
 * dummy backend ``cas_server.auth.DummyAuthUser``: all authentication attempts fail.
 * test backend ``cas_server.auth.TestAuthUser``: username, password and returned attributes
@@ -474,7 +474,7 @@ Authentication backend
 Logs
 ====
 
-``django-cas-server`` logs most of its actions. To enable login, you must set the ``LOGGING``
+``django-4-cas-server`` logs most of its actions. To enable login, you must set the ``LOGGING``
 (https://docs.djangoproject.com/en/stable/topics/logging) variable in ``settings.py``.
 
 Users successful actions (login, logout) are logged with the level ``INFO``, failures are logged
@@ -545,7 +545,7 @@ Service Patterns
 In a CAS context, ``Service`` refers to the application the client is trying to access.
 By extension we use ``service`` for the URL of such an application.
 
-By default, ``django-cas-server`` does not allow any service to use the CAS to authenticate users.
+By default, ``django-4-cas-server`` does not allow any service to use the CAS to authenticate users.
 In order to allow services, you need to connect to the django admin interface using a django
 superuser, and add a first service pattern.
 
@@ -596,14 +596,14 @@ So the service URL ``https://www.examle.com`` will use the service pattern for
 Federation mode
 ===============
 
-``django-cas-server`` comes with a federation mode. When ``CAS_FEDERATE`` is ``True``,
+``django-4-cas-server`` comes with a federation mode. When ``CAS_FEDERATE`` is ``True``,
 users are invited to choose an identity provider on the login page, then, they are redirected
-to the provider CAS to authenticate. This provider transmits to ``django-cas-server`` the user
-username and attributes. The user is now logged in on ``django-cas-server`` and can use
-services using ``django-cas-server`` as CAS.
+to the provider CAS to authenticate. This provider transmits to ``django-4-cas-server`` the user
+username and attributes. The user is now logged in on ``django-4-cas-server`` and can use
+services using ``django-4-cas-server`` as CAS.
 
 In federation mode, the user attributes are cached upon user authentication. See the settings
-``CAS_TGT_VALIDITY`` to force users to reauthenticate periodically and allow ``django-cas-server``
+``CAS_TGT_VALIDITY`` to force users to reauthenticate periodically and allow ``django-4-cas-server``
 to refresh cached attributes.
 
 The list of allowed identity providers is defined using the django admin application.
@@ -627,9 +627,9 @@ An identity provider comes with 5 fields:
   User will always be able to log in using this provider by fetching ``/federate/provider_suffix``.
 
 
-In federation mode, ``django-cas-server`` build user's username as follow:
+In federation mode, ``django-4-cas-server`` build user's username as follow:
 ``provider_returned_username@provider_suffix``.
-Choose the provider returned username for ``django-cas-server`` and the provider suffix
+Choose the provider returned username for ``django-4-cas-server`` and the provider suffix
 in order to make sense, as this built username is likely to be displayed to end users in
 applications.
 
@@ -644,23 +644,23 @@ You could for example do as below::
 
 
 
-.. |travis| image:: https://badges.genua.fr/travis/com/nitmir/django-cas-server/master.svg
-    :target: https://travis-ci.com/nitmir/django-cas-server
+.. |travis| image:: https://badges.genua.fr/travis/com/nitmir/django-4-cas-server/master.svg
+    :target: https://travis-ci.com/nitmir/django-4-cas-server
 
-.. |pypi_version| image:: https://badges.genua.fr/pypi/v/django-cas-server.svg
-    :target: https://pypi.org/project/django-cas-server/
+.. |pypi_version| image:: https://badges.genua.fr/pypi/v/django-4-cas-server.svg
+    :target: https://pypi.org/project/django-4-cas-server/
 
-.. |github_version| image:: https://badges.genua.fr/github/tag/nitmir/django-cas-server.svg?label=github
-    :target: https://github.com/nitmir/django-cas-server/releases/latest
+.. |github_version| image:: https://badges.genua.fr/github/tag/nitmir/django-4-cas-server.svg?label=github
+    :target: https://github.com/nitmir/django-4-cas-server/releases/latest
 
-.. |licence| image:: https://badges.genua.fr/pypi/l/django-cas-server.svg
+.. |licence| image:: https://badges.genua.fr/pypi/l/django-4-cas-server.svg
     :target: https://www.gnu.org/licenses/gpl-3.0.html
 
 .. |codacy| image:: https://badges.genua.fr/codacy/grade/255c21623d6946ef8802fa7995b61366/master.svg
-    :target: https://www.codacy.com/app/valentin-samir/django-cas-server
+    :target: https://www.codacy.com/app/valentin-samir/django-4-cas-server
 
-.. |coverage| image:: https://intranet.genua.fr/coverage/badge/django-cas-server/master.svg
-    :target: https://badges.genua.fr/coverage/django-cas-server/master
+.. |coverage| image:: https://intranet.genua.fr/coverage/badge/django-4-cas-server/master.svg
+    :target: https://badges.genua.fr/coverage/django-4-cas-server/master
 
 .. |doc| image:: https://badges.genua.fr/local/readthedocs/?version=latest
-    :target: http://django-cas-server.readthedocs.io
+    :target: http://django-4-cas-server.readthedocs.io

@@ -6,16 +6,16 @@ build:
 
 install: dist
 	pip3 -V
-	pip3 install --no-cache-dir --no-deps --upgrade --force-reinstall --find-links ./dist/django-cas-server-${VERSION}.tar.gz django-cas-server
+	pip3 install --no-cache-dir --no-deps --upgrade --force-reinstall --find-links ./dist/django-4-cas-server-${VERSION}.tar.gz django-4-cas-server
 
 uninstall:
-	pip3 uninstall django-cas-server || true
+	pip3 uninstall django-4-cas-server || true
 
 clean_pyc:
 	find ./ -name '*.pyc' -delete
 	find ./ -name __pycache__ -delete
 clean_build:
-	rm -rf build django_cas_server.egg-info dist
+	rm -rf build django_4_cas_server.egg-info dist
 clean_tox:
 	rm -rf .tox tox_logs
 clean_test_venv:

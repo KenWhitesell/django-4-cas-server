@@ -681,7 +681,7 @@ def last_version():
         Fetch the last version from pypi and return it. On successful fetch from pypi, the response
         is cached 24h, on error, it is cached 10 min.
 
-        :return: the last django-cas-server version
+        :return: the last django-4-cas-server version
         :rtype: unicode
     """
     try:
